@@ -1,7 +1,0 @@
-/var/spool/slurmd/job12434631/slurm_script: line 19: module: command not found
-/var/spool/slurmd/job12434631/slurm_script: line 21: /home/mkychsu/clean_trash.sh: No such file or directory
-
-EnvironmentNameNotFound: Could not find conda environment: llm
-You can list all discoverable environments with `conda info --envs`.
-
-
