@@ -1,0 +1,11 @@
+Parsed 2 dataset(s):
+  - karpathy/fineweb-edu-100b-shuffle [2000]
+  - mkychsu/semiconductor_small [all]
+Streaming dataset: karpathy/fineweb-edu-100b-shuffle (split=train, n=2000)
+[error][sample_streamed_dataset] ValueError: Invalid pattern: '**' can only be an entire path component | dataset=karpathy/fineweb-edu-100b-shuffle
+  -> Collected 0 rows
+Streaming dataset: mkychsu/semiconductor_small (split=train, all)
+[error][sample_streamed_dataset] NotImplementedError: Loading a streaming dataset cached in a LocalFileSystem is not supported yet. | dataset=mkychsu/semiconductor_small
+  -> Collected 0 rows
+[error][build_corpus] No data collected from any dataset
+[error][main] Corpus is empty. Nothing to do.
