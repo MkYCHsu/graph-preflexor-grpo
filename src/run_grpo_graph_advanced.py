@@ -926,6 +926,129 @@ def score_graph_structure(full_output: str) -> float:
         return 0.0
 
 
+
+
+def score_judge_bundle(
+    api_client: OpenAI,
+    judge_model: str,
+    question: str,
+    gold_answer: str,
+    full_output: str,
+    need_correctness: bool = True,
+    need_graph_utility: bool = True,
+) -> Tuple[float, float]:
+    """
+    Fast bundled LLM judge.
+
+    This replaces the old slow path:
+      1) score_correctness()              -> one judge call
+      2) score_graph_utility reconstruct  -> one judge call
+      3) score_graph_utility grade        -> one judge call
+
+    with one judge call that returns both:
+      - correctness_score
+      - graph_utility_score
+
+    The graph_utility score should evaluate whether the graph_json itself
+    contains enough concepts/relations to support the gold answer. It should
+    NOT reward a good final answer if the graph is missing or uninformative.
+    """
+    ans = extract_post_thinking_answer(full_output) or ""
+    gj_str = extract_graph_json_model(full_output)
+
+    # Avoid unnecessary API calls when the requested signal is impossible.
+    if need_correctness and not ans and not need_graph_utility:
+        return 0.0, 0.0
+    if need_graph_utility and gj_str is None and not need_correctness:
+        return 0.0, 0.0
+    if not need_correctness and not need_graph_utility:
+        return 0.0, 0.0
+
+    graph_payload = gj_str if gj_str is not None else "NO_VALID_GRAPH_JSON_FOUND"
+    candidate_payload = ans if ans else "NO_FINAL_ANSWER_FOUND"
+
+    system_prompt = (
+        "You are a precise technical judge. Return JSON only. "
+        "Score on a continuous 0.0 to 1.0 scale and use the full range. "
+        "Evaluate the final answer and the reasoning graph separately."
+    )
+
+    user_prompt = f"""
+Question:
+{question}
+
+Gold Answer:
+{gold_answer}
+
+Candidate Final Answer:
+{candidate_payload}
+
+Candidate Graph JSON:
+{graph_payload}
+
+Evaluate two separate criteria:
+
+1. correctness_score:
+How well does the Candidate Final Answer match the Gold Answer?
+- 0.95-1.0: fully correct, complete, specific
+- 0.80-0.94: correct with minor omissions
+- 0.60-0.79: mostly correct, some gaps or vagueness
+- 0.40-0.59: partially correct, significant gaps
+- 0.20-0.39: few correct elements, mostly incomplete
+- 0.01-0.19: mostly wrong or irrelevant
+- 0.0: completely wrong or no answer
+
+2. graph_utility_score:
+How well does the Candidate Graph JSON itself capture the key concepts and relationships needed to answer the question?
+Judge this using ONLY the graph nodes and edges, not the Candidate Final Answer.
+- 0.90-1.0: graph captures all key concepts and relationships needed for the gold answer
+- 0.70-0.89: graph captures most key information, with minor gaps
+- 0.50-0.69: graph captures the core idea but misses important details
+- 0.30-0.49: graph has some relevant information but major gaps
+- 0.10-0.29: graph is barely useful; most key information is missing
+- 0.0-0.09: graph is missing, invalid, irrelevant, or not useful
+
+Important:
+- If Candidate Final Answer is NO_FINAL_ANSWER_FOUND, correctness_score must be 0.0.
+- If Candidate Graph JSON is NO_VALID_GRAPH_JSON_FOUND, graph_utility_score must be 0.0.
+- The two scores are independent: a good answer with a bad graph should have high correctness_score but low graph_utility_score.
+
+Return only JSON with this exact structure:
+{{
+  "correctness_score": <float>,
+  "graph_utility_score": <float>,
+  "justification": "brief reason"
+}}
+"""
+
+    obj = judge_json_object(
+        api_client,
+        judge_model,
+        system_prompt,
+        user_prompt,
+        debug_label="judge_bundle",
+    )
+    if not obj:
+        return 0.0, 0.0
+
+    def _clip_score(value: Any) -> float:
+        try:
+            return max(0.0, min(1.0, float(value)))
+        except Exception:
+            return 0.0
+
+    corr = _clip_score(obj.get("correctness_score", 0.0)) if need_correctness else 0.0
+    gut = _clip_score(obj.get("graph_utility_score", 0.0)) if need_graph_utility else 0.0
+
+    # Hard guards: do not let the judge accidentally reward missing fields.
+    if need_correctness and not ans:
+        corr = 0.0
+    if need_graph_utility and gj_str is None:
+        gut = 0.0
+
+    return corr, gut
+
+
 def combined_reward(
     api_client: OpenAI,
     judge_model: str,
@@ -941,12 +1064,33 @@ def combined_reward(
     weight_graph_diversity: float = 0.0,
     weight_graph_structure: float = 0.0,
 ) -> float:
-    # Core rewards (always computed if weight > 0)
-    fmt = score_format(full_output) if weight_format > 0 else 0.0
-    corr = score_correctness(api_client, judge_model, question, gold_answer, full_output) if weight_correctness > 0 else 0.0
-    gut = score_graph_utility(api_client, judge_model, question, gold_answer, full_output) if weight_graph_utility > 0 else 0.0
+    """
+    Combined reward with a bundled LLM judge.
 
-    # Optional rewards (only computed if weight > 0)
+    Speed change:
+    - Old path used up to 3 judge calls per completion:
+        correctness + graph_reconstruct + graph_grade
+    - New path uses 1 judge call per completion for both correctness and graph_utility.
+    - Local graph rewards are still computed locally only when their weights > 0.
+    """
+    # Local format reward.
+    fmt = score_format(full_output) if weight_format > 0 else 0.0
+
+    # Bundled LLM judge reward.
+    corr = 0.0
+    gut = 0.0
+    if weight_correctness > 0 or weight_graph_utility > 0:
+        corr, gut = score_judge_bundle(
+            api_client,
+            judge_model,
+            question,
+            gold_answer,
+            full_output,
+            need_correctness=(weight_correctness > 0),
+            need_graph_utility=(weight_graph_utility > 0),
+        )
+
+    # Optional local graph rewards (only computed if weight > 0)
     gschema = score_graph_schema(full_output) if weight_graph_schema > 0 else 0.0  # NEW
     gnx = score_graph_networkx(full_output) if weight_graph_networkx > 0 else 0.0
     gdiv = score_graph_diversity(full_output) if weight_graph_diversity > 0 else 0.0
@@ -1005,6 +1149,282 @@ def combined_reward(
 
 # ----- GRPO reward shim -----
 def make_reward_function(
+    api_client: OpenAI,
+    judge_model: str,
+    weight_correctness: float = 0.4,
+    weight_format: float = 0.3,
+    weight_graph_utility: float = 0.3,
+    # Optional components
+    weight_graph_schema: float = 0.0,  # NEW: typed schema compliance
+    weight_graph_networkx: float = 0.0,
+    weight_graph_diversity: float = 0.0,
+    weight_graph_structure: float = 0.0,
+):
+    """
+    Parallel version of the GRPO reward function.
+
+    This keeps your original combined_reward() unchanged.
+    The only change is that completions are scored in parallel instead of:
+
+        completion 0 -> completion 1 -> completion 2 -> ...
+
+    Runtime env vars:
+        JUDGE_MAX_WORKERS=4      # start with 4, try 8 if no rate limit
+        JUDGE_RETRIES=3
+        JUDGE_DEBUG_TIMING=1
+    """
+
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    import os
+    import time
+    import random
+
+    def _env_int(name: str, default: int) -> int:
+        try:
+            return int(os.environ.get(name, str(default)))
+        except Exception:
+            return default
+
+    def _env_bool(name: str, default: bool = False) -> bool:
+        val = os.environ.get(name, "")
+        if not val:
+            return default
+        return val.lower() in {"1", "true", "yes", "y", "on"}
+
+    def _completion_to_text(c) -> str:
+        """
+        TRL can pass completions as:
+          - str
+          - dict
+          - list[dict]
+        Normalize all of them to plain text.
+        """
+        if c is None:
+            return ""
+
+        if isinstance(c, str):
+            return c
+
+        if isinstance(c, dict):
+            return str(c.get("content", c))
+
+        if isinstance(c, list):
+            if not c:
+                return ""
+            first = c[0]
+            if isinstance(first, dict):
+                return str(first.get("content", first))
+            return str(first)
+
+        return str(c)
+
+    def _to_list(x, n: int):
+        """
+        Normalize question / gold_answer.
+        TRL sometimes passes scalar, sometimes list.
+        """
+        if x is None:
+            return [""] * n
+
+        if isinstance(x, list):
+            if len(x) == 0:
+                return [""] * n
+            return x
+
+        if isinstance(x, tuple):
+            if len(x) == 0:
+                return [""] * n
+            return list(x)
+
+        return [x] * n
+
+    def _safe_get(xs, i: int, default=""):
+        """
+        Handles both cases:
+          - one question/gold per completion
+          - one question/gold per prompt
+        """
+        if not xs:
+            return default
+
+        if i < len(xs):
+            return xs[i]
+
+        if len(xs) == 1:
+            return xs[0]
+
+        return xs[i % len(xs)]
+
+    def _score_one(i: int, out: str, q_list, ga_list):
+        q = str(_safe_get(q_list, i, ""))
+        ga = str(_safe_get(ga_list, i, ""))
+
+        if not ga:
+            return i, 0.0
+
+        max_retries = max(1, _env_int("JUDGE_RETRIES", 3))
+        debug_timing = _env_bool("JUDGE_DEBUG_TIMING", False)
+
+        last_error = None
+
+        for attempt in range(max_retries):
+            t0 = time.perf_counter()
+
+            try:
+                r = combined_reward(
+                    api_client,
+                    judge_model,
+                    q,
+                    ga,
+                    out,
+                    weight_correctness=weight_correctness,
+                    weight_format=weight_format,
+                    weight_graph_utility=weight_graph_utility,
+                    weight_graph_schema=weight_graph_schema,
+                    weight_graph_networkx=weight_graph_networkx,
+                    weight_graph_diversity=weight_graph_diversity,
+                    weight_graph_structure=weight_graph_structure,
+                )
+
+                r = float(r)
+
+                if debug_timing:
+                    dt = time.perf_counter() - t0
+                    try:
+                        reward_logger.info(
+                            f"[parallel_reward] completion={i} reward={r:.4f} time={dt:.2f}s"
+                        )
+                    except Exception:
+                        pass
+
+                return i, r
+
+            except Exception as e:
+                last_error = e
+
+                wait = min(30.0, (2.0 ** attempt) + random.random())
+
+                try:
+                    reward_logger.warning(
+                        f"[parallel_reward] completion={i} "
+                        f"attempt={attempt + 1}/{max_retries} failed: {repr(e)}; "
+                        f"retry in {wait:.1f}s"
+                    )
+                except Exception:
+                    pass
+
+                if attempt < max_retries - 1:
+                    time.sleep(wait)
+
+        try:
+            reward_logger.warning(
+                f"[parallel_reward] completion={i} failed after {max_retries} attempts. "
+                f"Returning 0.0. Last error: {repr(last_error)}"
+            )
+        except Exception:
+            pass
+
+        return i, 0.0
+
+    def reward_function(
+        completions: List[str],
+        prompts: Optional[List[str]] = None,
+        question: Optional[List[str]] = None,
+        gold_answer: Optional[List[str]] = None,
+        **kwargs,
+    ):
+        if completions is None:
+            return []
+
+        outs = [_completion_to_text(c) for c in completions]
+        n = len(outs)
+
+        if n == 0:
+            return []
+
+        q_list = _to_list(question, n)
+        ga_list = _to_list(gold_answer, n)
+
+        # If no API/LLM judge is enabled, just run locally without thread overhead.
+        uses_external_judge = (weight_correctness > 0) or (weight_graph_utility > 0)
+
+        if not uses_external_judge:
+            rewards = []
+
+            for i, out in enumerate(outs):
+                q = str(_safe_get(q_list, i, ""))
+                ga = str(_safe_get(ga_list, i, ""))
+
+                if not ga:
+                    rewards.append(0.0)
+                    continue
+
+                try:
+                    r = combined_reward(
+                        api_client,
+                        judge_model,
+                        q,
+                        ga,
+                        out,
+                        weight_correctness=weight_correctness,
+                        weight_format=weight_format,
+                        weight_graph_utility=weight_graph_utility,
+                        weight_graph_schema=weight_graph_schema,
+                        weight_graph_networkx=weight_graph_networkx,
+                        weight_graph_diversity=weight_graph_diversity,
+                        weight_graph_structure=weight_graph_structure,
+                    )
+                    rewards.append(float(r))
+                except Exception as e:
+                    try:
+                        reward_logger.warning(
+                            f"[reward_function_local] completion={i} failed: {repr(e)}"
+                        )
+                    except Exception:
+                        pass
+                    rewards.append(0.0)
+
+            return rewards
+
+        max_workers = max(1, min(_env_int("JUDGE_MAX_WORKERS", 4), n))
+        rewards = [0.0] * n
+
+        try:
+            reward_logger.info(
+                f"[parallel_reward] scoring {n} completions with max_workers={max_workers}, "
+                f"judge_model={judge_model}, "
+                f"weights={{correctness:{weight_correctness}, format:{weight_format}, "
+                f"graph_utility:{weight_graph_utility}, schema:{weight_graph_schema}, "
+                f"networkx:{weight_graph_networkx}, diversity:{weight_graph_diversity}, "
+                f"structure:{weight_graph_structure}}}"
+            )
+        except Exception:
+            pass
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [
+                executor.submit(_score_one, i, out, q_list, ga_list)
+                for i, out in enumerate(outs)
+            ]
+
+            for future in as_completed(futures):
+                try:
+                    i, r = future.result()
+                    rewards[i] = float(r)
+                except Exception as e:
+                    try:
+                        reward_logger.warning(
+                            f"[parallel_reward] worker failed unexpectedly: {repr(e)}"
+                        )
+                    except Exception:
+                        pass
+
+        return rewards
+
+    return reward_function
+
+# ----- GRPO reward shim -----
+def make_reward_function_old(
     api_client: OpenAI,
     judge_model: str,
     weight_correctness: float = 0.4,

@@ -1,0 +1,271 @@
+2026-05-19 21:17:41,770 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:17:44,997 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate final answer is missing, leading to a correctness score of 0.0, and the graph JSON is invalid, resulting in a graph utility score of 0.0.'}
+2026-05-19 21:17:44,997 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:17:44,998 | [parallel_reward] completion=0 reward=0.0250 time=3.23s
+2026-05-19 21:17:48,138 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph provided.'}
+2026-05-19 21:17:48,138 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:17:48,139 | [parallel_reward] completion=1 reward=0.0000 time=6.37s
+2026-05-19 21:18:49,013 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:18:51,345 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate final answer is missing, resulting in a correctness score of 0.0. Additionally, there is no valid graph JSON provided, leading to a graph utility score of 0.0.'}
+2026-05-19 21:18:51,346 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:18:51,346 | [parallel_reward] completion=1 reward=0.0000 time=2.32s
+2026-05-19 21:18:51,876 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate final answer is missing, resulting in a correctness score of 0.0. Additionally, there is no valid graph JSON provided to evaluate, leading to a graph utility score of 0.0.'}
+2026-05-19 21:18:51,876 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:18:51,877 | [parallel_reward] completion=0 reward=0.0000 time=2.86s
+2026-05-19 21:19:52,642 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:19:53,869 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was found.'}
+2026-05-19 21:19:53,870 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:19:53,870 | [parallel_reward] completion=0 reward=0.0250 time=1.23s
+2026-05-19 21:19:56,058 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is absent, and no relevant graph is provided.'}
+2026-05-19 21:19:56,058 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:19:56,059 | [parallel_reward] completion=1 reward=0.0000 time=3.41s
+2026-05-19 21:20:56,857 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:21:00,067 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing, resulting in a correctness score of 0.0. Additionally, there is no valid graph provided, leading to a graph utility score of 0.0.'}
+2026-05-19 21:21:00,068 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:21:00,068 | [parallel_reward] completion=1 reward=0.0250 time=3.20s
+2026-05-19 21:21:00,106 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer indicates there is no answer provided, and the Candidate Graph JSON is also marked as not found, resulting in both scores being zero.'}
+2026-05-19 21:21:00,106 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:21:00,107 | [parallel_reward] completion=0 reward=0.0000 time=3.25s
+2026-05-19 21:22:00,835 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:22:02,537 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided, resulting in a score of zero for both criteria.'}
+2026-05-19 21:22:02,537 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:22:02,538 | [parallel_reward] completion=0 reward=0.0250 time=1.70s
+2026-05-19 21:22:03,438 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph provided, resulting in a score of 0.0 for both criteria.'}
+2026-05-19 21:22:03,439 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:22:03,439 | [parallel_reward] completion=1 reward=0.0250 time=2.60s
+2026-05-19 21:23:04,100 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:23:05,714 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided.'}
+2026-05-19 21:23:05,715 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:23:05,715 | [parallel_reward] completion=1 reward=0.0250 time=1.61s
+2026-05-19 21:23:05,778 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Candidate Final Answer and Candidate Graph JSON were both missing, leading to zero scores for both correctness and graph utility.'}
+2026-05-19 21:23:05,778 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:23:05,779 | [parallel_reward] completion=0 reward=0.0250 time=1.68s
+2026-05-19 21:24:06,449 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:24:07,831 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided, leading to scores of zero for both criteria.'}
+2026-05-19 21:24:07,832 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:24:07,832 | [parallel_reward] completion=1 reward=0.0000 time=1.38s
+2026-05-19 21:24:08,014 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'There is no final answer or valid graph provided, resulting in a score of zero for both criteria.'}
+2026-05-19 21:24:08,014 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:24:08,015 | [parallel_reward] completion=0 reward=0.0250 time=1.56s
+2026-05-19 21:25:08,723 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:25:10,197 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided for evaluation.'}
+2026-05-19 21:25:10,197 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:25:10,198 | [parallel_reward] completion=0 reward=0.0000 time=1.47s
+2026-05-19 21:25:10,726 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided.'}
+2026-05-19 21:25:10,726 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:25:10,727 | [parallel_reward] completion=1 reward=0.0000 time=2.00s
+2026-05-19 21:26:11,351 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:26:13,334 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer states that no final answer is found, resulting in a correctness score of 0.0. Additionally, the Candidate Graph JSON is marked as invalid or missing, leading to a graph utility score of 0.0.'}
+2026-05-19 21:26:13,334 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:26:13,335 | [parallel_reward] completion=1 reward=0.0250 time=1.98s
+2026-05-19 21:26:14,177 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing, resulting in a score of 0.0 for correctness. Additionally, the Candidate Graph is not valid, leading to a score of 0.0 for graph utility.'}
+2026-05-19 21:26:14,178 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:26:14,178 | [parallel_reward] completion=0 reward=0.0250 time=2.82s
+2026-05-19 21:27:14,704 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:27:16,517 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing, resulting in a correctness score of 0.0, and the Candidate Graph JSON is also missing, leading to a graph utility score of 0.0.'}
+2026-05-19 21:27:16,517 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:27:16,518 | [parallel_reward] completion=1 reward=0.0000 time=1.81s
+2026-05-19 21:27:17,140 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing entirely, resulting in a correctness score of 0.0. Additionally, the Candidate Graph JSON is invalid, leading to a graph utility score of 0.0.'}
+2026-05-19 21:27:17,140 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:27:17,141 | [parallel_reward] completion=0 reward=0.0250 time=2.43s
+2026-05-19 21:28:17,348 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.35, format:0.25, graph_utility:0.2, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 21:28:19,013 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Candidate Final Answer and Graph are both absent, leading to a score of 0 for both criteria.'}
+2026-05-19 21:28:19,013 | [Reward] format=0.000 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.000
+2026-05-19 21:28:19,014 | [parallel_reward] completion=0 reward=0.0000 time=1.66s
+2026-05-19 21:28:19,391 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph was provided, resulting in scores of 0.0 for both criteria.'}
+2026-05-19 21:28:19,391 | [Reward] format=0.100 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.025
+2026-05-19 21:28:19,392 | [parallel_reward] completion=1 reward=0.0250 time=2.03s
+2026-05-19 22:24:18,179 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:24:20,958 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph provided for evaluation.'}
+2026-05-19 22:24:20,958 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:24:20,959 | [parallel_reward] completion=1 reward=0.0625 time=2.77s
+2026-05-19 22:24:23,336 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'There is no final answer or valid graph JSON provided, resulting in scores of 0.0 for both criteria.'}
+2026-05-19 22:24:23,336 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:24:23,337 | [parallel_reward] completion=0 reward=0.0625 time=5.15s
+2026-05-19 22:28:25,510 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:28:28,333 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': "The Candidate Final Answer is 'NO_FINAL_ANSWER_FOUND,' resulting in a correctness score of 0.0. Additionally, the Candidate Graph JSON is 'NO_VALID_GRAPH_JSON_FOUND,' leading to a graph utility score of 0.0."}
+2026-05-19 22:28:28,333 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:28:28,334 | [parallel_reward] completion=1 reward=0.0625 time=2.81s
+2026-05-19 22:28:29,862 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON was provided.'}
+2026-05-19 22:28:29,863 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:28:29,863 | [parallel_reward] completion=0 reward=0.0625 time=4.35s
+2026-05-19 22:32:31,534 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:32:34,242 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer indicates there is no answer provided, resulting in a correctness score of 0.0. Additionally, the Candidate Graph JSON is marked as invalid, leading to a graph utility score of 0.0.'}
+2026-05-19 22:32:34,242 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:32:34,243 | [parallel_reward] completion=1 reward=0.0625 time=2.70s
+2026-05-19 22:32:34,449 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'There is no final answer provided, leading to a correctness score of 0.0, and the graph JSON is invalid, resulting in a graph utility score of 0.0.'}
+2026-05-19 22:32:34,450 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:32:34,450 | [parallel_reward] completion=0 reward=0.0625 time=2.91s
+2026-05-19 22:36:36,259 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:36:37,554 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate provided no final answer or valid graph, which results in both scores being zero.'}
+2026-05-19 22:36:37,555 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:36:37,555 | [parallel_reward] completion=1 reward=0.0625 time=1.29s
+2026-05-19 22:36:39,093 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Candidate Final Answer and Candidate Graph JSON were both not provided, resulting in a score of 0.0 for both correctness and graph utility.'}
+2026-05-19 22:36:39,093 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:36:39,094 | [parallel_reward] completion=0 reward=0.0625 time=2.83s
+2026-05-19 22:40:40,872 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:40:43,858 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing, resulting in a correctness score of 0.0, and the Candidate Graph is invalid, yielding a graph utility score of 0.0.'}
+2026-05-19 22:40:43,859 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:40:43,860 | [parallel_reward] completion=0 reward=0.0625 time=2.99s
+2026-05-19 22:40:44,918 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate final answer is missing, leading to a score of 0.0 for correctness. Additionally, the candidate graph is not valid, resulting in a score of 0.0 for graph utility.'}
+2026-05-19 22:40:44,918 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:40:44,919 | [parallel_reward] completion=1 reward=0.0625 time=4.04s
+2026-05-19 22:44:51,981 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:44:53,579 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Both Candidate Final Answer and Candidate Graph JSON are absent, resulting in a score of 0.0 for both criteria.'}
+2026-05-19 22:44:53,579 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:44:53,580 | [parallel_reward] completion=1 reward=0.0625 time=1.59s
+2026-05-19 22:44:54,706 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate does not provide a valid final answer or a functional graph JSON, resulting in both scores being zero.'}
+2026-05-19 22:44:54,707 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:44:54,707 | [parallel_reward] completion=0 reward=0.0625 time=2.72s
+2026-05-19 22:48:56,293 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:48:58,113 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'There is no final answer and no valid graph JSON provided, making it impossible to evaluate accuracy or utility.'}
+2026-05-19 22:48:58,113 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:48:58,114 | [parallel_reward] completion=0 reward=0.0625 time=1.82s
+2026-05-19 22:48:58,918 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Candidate Final Answer is missing, leading to a correctness score of 0.0. The graph is also absent, resulting in a graph utility score of 0.0.'}
+2026-05-19 22:48:58,918 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:48:58,919 | [parallel_reward] completion=1 reward=0.0625 time=2.61s
+2026-05-19 22:53:00,585 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:53:02,196 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer was not found, resulting in a score of 0.0 for correctness. Additionally, the Candidate Graph JSON was invalid, leading to a score of 0.0 for graph utility.'}
+2026-05-19 22:53:02,197 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:53:02,197 | [parallel_reward] completion=0 reward=0.0625 time=1.61s
+2026-05-19 22:53:02,911 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph was found; therefore, both scores are zero.'}
+2026-05-19 22:53:02,911 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:53:02,912 | [parallel_reward] completion=1 reward=0.0625 time=2.31s
+2026-05-19 22:57:04,548 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 22:57:06,003 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate final answer was not provided, and the candidate graph JSON was invalid, leading to scores of 0.0 for both criteria.'}
+2026-05-19 22:57:06,004 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:57:06,004 | [parallel_reward] completion=1 reward=0.0625 time=1.45s
+2026-05-19 22:57:06,059 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'Candidate Final Answer is missing, leading to a score of 0.0 for correctness. Furthermore, the Candidate Graph JSON is not valid, resulting in a score of 0.0 for graph utility.'}
+2026-05-19 22:57:06,060 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 22:57:06,060 | [parallel_reward] completion=0 reward=0.0625 time=1.51s
+2026-05-19 23:01:07,368 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 23:01:09,013 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph JSON found.'}
+2026-05-19 23:01:09,014 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:01:09,015 | [parallel_reward] completion=1 reward=0.0625 time=1.64s
+2026-05-19 23:01:09,612 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The candidate did not provide a final answer or valid graph, leading to scores of zero for both criteria.'}
+2026-05-19 23:01:09,612 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:01:09,613 | [parallel_reward] completion=0 reward=0.0625 time=2.24s
+2026-05-19 23:05:16,193 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 23:05:17,779 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph was provided, leading to automatic scores of 0.0 in both criteria.'}
+2026-05-19 23:05:17,780 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:05:17,780 | [parallel_reward] completion=0 reward=0.0625 time=1.59s
+2026-05-19 23:05:18,125 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'The Candidate Final Answer is missing, leading to a correctness score of 0.0. Additionally, the Candidate Graph JSON is also missing, resulting in a graph utility score of 0.0.'}
+2026-05-19 23:05:18,126 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:05:18,126 | [parallel_reward] completion=1 reward=0.0625 time=1.93s
+2026-05-19 23:11:36,534 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:11:36,536 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:15:38,301 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:15:38,303 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:19:39,811 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:19:39,813 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:23:41,424 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:23:41,426 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:27:43,016 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:27:43,017 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:31:50,117 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:31:50,118 | [Reward] format=0.250 graph_schema=0.000 total=0.125
+2026-05-19 23:52:18,046 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-19 23:52:20,763 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or graph provided, leading to zero scores on both criteria.'}
+2026-05-19 23:52:20,763 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:52:20,763 | [parallel_reward] completion=0 reward=0.0625 time=2.72s
+2026-05-19 23:52:20,855 | [Judge:judge_bundle] {'correctness_score': 0.0, 'graph_utility_score': 0.0, 'justification': 'No final answer or valid graph was provided, resulting in a zero score for both criteria.'}
+2026-05-19 23:52:20,856 | [Reward] format=0.250 correctness=0.000 graph_utility=0.000 graph_schema=0.000 total=0.062
+2026-05-19 23:52:20,856 | [parallel_reward] completion=1 reward=0.0625 time=2.81s
+2026-05-20 00:07:57,294 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:08:00,146 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer accurately captures the impact of phosphorus segregation on breakdown voltage and current but lacks some specificity regarding the detrimental effects on memory performance. The graph effectively represents key concepts and relationships but may miss finer details on the role of tunneling area and its implications.'}
+2026-05-20 00:08:00,146 | [Reward] format=0.850 correctness=0.850 graph_utility=0.850 graph_schema=1.000 total=0.880
+2026-05-20 00:08:00,147 | [parallel_reward] completion=0 reward=0.8800 time=2.85s
+2026-05-20 00:08:00,499 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer captures the main ideas but includes some vagueness regarding the impact of phosphorous on breakdown voltage. The graph captures most key concepts and relationships but has minor gaps, particularly in how phosphorous segregation specifically modifies electrical characteristics.'}
+2026-05-20 00:08:00,499 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=1.000 total=0.905
+2026-05-20 00:08:00,500 | [parallel_reward] completion=1 reward=0.9050 time=3.20s
+2026-05-20 00:13:41,124 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:13:43,101 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer is mostly correct but lacks specificity about the role of H2O2 in enhancing copper recovery through oxidation. The graph captures most key concepts and relationships, but it could include more explicit links related to the recovery of low ionization elements.'}
+2026-05-20 00:13:43,101 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=1.000 total=0.905
+2026-05-20 00:13:43,102 | [parallel_reward] completion=1 reward=0.9050 time=1.97s
+2026-05-20 00:13:43,754 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer is mostly correct but has minor omissions regarding the role of oxygen specifically in copper recovery. The graph captures key concepts and relationships but could include more detail on the interrelation of elements and processes.'}
+2026-05-20 00:13:43,754 | [Reward] format=0.900 correctness=0.850 graph_utility=0.800 graph_schema=0.956 total=0.871
+2026-05-20 00:13:43,755 | [parallel_reward] completion=0 reward=0.8711 time=2.63s
+2026-05-20 00:21:19,804 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:21:22,154 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer partially addresses both acute and chronic risks and suggests effective engineering controls, but lacks specificity about the acute effects of carbon tetrachloride and its carcinogenic nature. The graph captures most key concepts and relationships, but could elaborate more on specific risks and controls.'}
+2026-05-20 00:21:22,154 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=1.000 total=0.905
+2026-05-20 00:21:22,155 | [parallel_reward] completion=1 reward=0.9050 time=2.34s
+2026-05-20 00:21:22,569 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer addresses the acute and chronic health risks of carbon tetrachloride but lacks specific details about the nature of the risks and does not mention regulatory standards. The graph captures key concepts and relationships but misses some critical details regarding the health impact of toxic byproducts.'}
+2026-05-20 00:21:22,570 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=0.950 total=0.895
+2026-05-20 00:21:22,570 | [parallel_reward] completion=0 reward=0.8950 time=2.76s
+2026-05-20 00:28:08,671 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:28:10,826 | [Judge:judge_bundle] {'correctness_score': 0.92, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer accurately reflects the key changes post-Franco-Prussian War and the decline of the Ottoman Empire but could provide a bit more context on the broader implications. The graph captures most key concepts and relationships but lacks some detail in the interplay between events and their outcomes.'}
+2026-05-20 00:28:10,827 | [Reward] format=1.000 correctness=0.920 graph_utility=0.850 graph_schema=1.000 total=0.939
+2026-05-20 00:28:10,828 | [parallel_reward] completion=1 reward=0.9385 time=2.15s
+2026-05-20 00:28:12,211 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer accurately addresses the historical outcomes of the Franco-Prussian War and the decline of the Ottoman Empire, with specific examples such as the annexation of Alsace-Lorraine. However, it could further elaborate on the broader implications of these changes. The Candidate Graph JSON captures most key concepts and relationships, but there are minor gaps in detailing the implications of each event.'}
+2026-05-20 00:28:12,212 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 00:28:12,213 | [parallel_reward] completion=0 reward=0.9325 time=3.54s
+2026-05-20 00:34:20,167 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:34:22,380 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer is mostly correct but omits some details about the implications of hydrophobicity in applications, while the graph captures most key concepts but has minor gaps in relationships.'}
+2026-05-20 00:34:22,381 | [Reward] format=0.900 correctness=0.850 graph_utility=0.800 graph_schema=0.962 total=0.872
+2026-05-20 00:34:22,381 | [parallel_reward] completion=1 reward=0.8724 time=2.21s
+2026-05-20 00:34:23,978 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer accurately describes the chemical mechanisms of HF-etched Si surfaces but omits some details about the broader implications and linkages. The graph effectively captures the key concepts and relationships, but minor details are missing.'}
+2026-05-20 00:34:23,979 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=1.000 total=0.905
+2026-05-20 00:34:23,980 | [parallel_reward] completion=0 reward=0.9050 time=3.81s
+2026-05-20 00:40:05,576 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:40:07,270 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer is mostly correct but lacks some details present in the Gold Answer, such as specific processes and broader implications. The Candidate Graph captures key concepts but misses some relationships and attributes that would enhance its completeness.'}
+2026-05-20 00:40:07,271 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=0.989 total=0.903
+2026-05-20 00:40:07,272 | [parallel_reward] completion=1 reward=0.9028 time=1.69s
+2026-05-20 00:40:08,936 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.75, 'justification': 'The Candidate Final Answer matches the main concepts from the Gold Answer but omits some details, such as the role of direct current superimposed plasma technology in the processes. The graph captures several key relationships but lacks some specific interactions and entities mentioned in the Gold Answer.'}
+2026-05-20 00:40:08,936 | [Reward] format=1.000 correctness=0.850 graph_utility=0.750 graph_schema=1.000 total=0.893
+2026-05-20 00:40:08,938 | [parallel_reward] completion=0 reward=0.8925 time=3.36s
+2026-05-20 00:46:27,062 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:46:29,696 | [Judge:judge_bundle] {'correctness_score': 0.92, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer is comprehensive and captures most aspects of the Gold Answer, with minor omissions related to environmental factors. The Candidate Graph JSON effectively represents key concepts and relationships, although it could include more explicit connections regarding environmental influences.'}
+2026-05-20 00:46:29,696 | [Reward] format=1.000 correctness=0.920 graph_utility=0.850 graph_schema=1.000 total=0.939
+2026-05-20 00:46:29,697 | [parallel_reward] completion=0 reward=0.9385 time=2.63s
+2026-05-20 00:46:30,374 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer captures the main points from the Gold Answer, including the link between genetic traits and lifespan, as well as the impact of environmental factors. However, it lacks some specificity and detail regarding the cellular mechanisms. The graph effectively represents key concepts but misses some relationships for a complete understanding.'}
+2026-05-20 00:46:30,374 | [Reward] format=0.900 correctness=0.850 graph_utility=0.800 graph_schema=0.985 total=0.877
+2026-05-20 00:46:30,375 | [parallel_reward] completion=1 reward=0.8769 time=3.30s
+2026-05-20 00:52:57,624 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:53:00,514 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer aligns closely with the Gold Answer, addressing key aspects like resist erosion and linewidth loss, although it lacks some detail on specific technologies. The graph captures essential concepts and relationships, though there are minor gaps in detailing all interactions.'}
+2026-05-20 00:53:00,514 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 00:53:00,515 | [parallel_reward] completion=0 reward=0.9325 time=2.89s
+2026-05-20 00:53:01,489 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer captures key elements from the Gold Answer but lacks detailed methodologies like ALE and ALD and how they relate to resist erosion specifically. The graph effectively represents concepts and their interrelations but could further detail specific mechanisms affecting yield.'}
+2026-05-20 00:53:01,489 | [Reward] format=1.000 correctness=0.850 graph_utility=0.850 graph_schema=1.000 total=0.917
+2026-05-20 00:53:01,490 | [parallel_reward] completion=1 reward=0.9175 time=3.86s
+2026-05-20 00:58:46,719 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 00:58:49,827 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': "The Candidate Final Answer accurately reflects the key points from the Gold Answer but lacks some minor specifics regarding the cleaning process's role in isolation. The graph effectively represents key concepts and relationships, though it could benefit from added details on the processes involved in chemical isolation."}
+2026-05-20 00:58:49,828 | [Reward] format=0.900 correctness=0.900 graph_utility=0.850 graph_schema=0.982 total=0.904
+2026-05-20 00:58:49,828 | [parallel_reward] completion=1 reward=0.9039 time=3.10s
+2026-05-20 00:58:50,714 | [Judge:judge_bundle] {'correctness_score': 0.92, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer accurately captures the essence of the Gold Answer with slight omissions regarding detailed connections between processes and outcomes. The graph effectively represents key concepts and relationships but lacks some minor detail in representing the complexity of the interactions.'}
+2026-05-20 00:58:50,715 | [Reward] format=1.000 correctness=0.920 graph_utility=0.850 graph_schema=1.000 total=0.939
+2026-05-20 00:58:50,715 | [parallel_reward] completion=0 reward=0.9385 time=3.99s
+2026-05-20 01:04:28,754 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 01:04:32,372 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer captures the essence of how plasma-assisted techniques improve memory storage efficiency through etching but lacks some detail on material performance improvements. The graph effectively illustrates key relationships but could clarify how enhancements directly translate to improved memory efficiency.'}
+2026-05-20 01:04:32,373 | [Reward] format=0.900 correctness=0.850 graph_utility=0.850 graph_schema=0.980 total=0.889
+2026-05-20 01:04:32,374 | [parallel_reward] completion=0 reward=0.8885 time=3.62s
+2026-05-20 01:04:32,483 | [Judge:judge_bundle] {'correctness_score': 0.92, 'graph_utility_score': 0.88, 'justification': 'The Candidate Final Answer aligns well with the Gold Answer, addressing key points about plasma-assisted techniques, but lacks some specificity about reliability and energy efficiency. The graph captures most key concepts and relationships but could include additional details on material properties and their direct impact on efficiency.'}
+2026-05-20 01:04:32,484 | [Reward] format=0.900 correctness=0.920 graph_utility=0.880 graph_schema=0.967 total=0.914
+2026-05-20 01:04:32,484 | [parallel_reward] completion=1 reward=0.9143 time=3.72s
+2026-05-20 01:09:44,141 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 01:09:47,572 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer captures the essence of the Gold Answer well, with minor omissions. The graph presents key concepts and relationships effectively but misses some nuanced connections found in the Gold Answer.'}
+2026-05-20 01:09:47,573 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 01:09:47,573 | [parallel_reward] completion=0 reward=0.9325 time=3.43s
+2026-05-20 01:09:48,153 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer is mostly correct and covers the transition well, but could elaborate on the depth of cognitive processing in the perceptive stage. The graph captures key concepts and relationships but lacks a few minor connections that would enhance clarity.'}
+2026-05-20 01:09:48,153 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 01:09:48,154 | [parallel_reward] completion=1 reward=0.9325 time=4.01s
+2026-05-20 01:15:27,464 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 01:15:29,563 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer correctly identifies HF as the effective chemical for oxide removal, including its selective etching properties, though it could elaborate more on the cleaning techniques and their implications. The graph captures key concepts and relationships about cleaning processes and their effects, with minor gaps regarding the relationship dynamics.'}
+2026-05-20 01:15:29,564 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 01:15:29,564 | [parallel_reward] completion=0 reward=0.9325 time=2.10s
+2026-05-20 01:15:30,926 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer correctly identifies hydrogen termination as an effective method for oxide removal, aligning well with the Gold Answer. However, it lacks some detail about specific chemical processes beyond hydrogen termination. The graph captures the necessary entities and relationships but could provide further context on the processes and their interactions.'}
+2026-05-20 01:15:30,927 | [Reward] format=0.900 correctness=0.900 graph_utility=0.850 graph_schema=0.956 total=0.899
+2026-05-20 01:15:30,928 | [parallel_reward] completion=1 reward=0.8986 time=3.45s
+2026-05-20 01:22:07,112 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 01:22:09,041 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer captures the essential relationship between ion energy, angular dispersion, and etching process anisotropy but lacks specific detail compared to the Gold Answer. The graph captures key concepts and relationships but could benefit from additional nodes representing interactions more explicitly detailed in the Gold Answer.'}
+2026-05-20 01:22:09,041 | [Reward] format=1.000 correctness=0.850 graph_utility=0.800 graph_schema=1.000 total=0.905
+2026-05-20 01:22:09,042 | [parallel_reward] completion=0 reward=0.9050 time=1.93s
+2026-05-20 01:22:09,238 | [Judge:judge_bundle] {'correctness_score': 0.85, 'graph_utility_score': 0.8, 'justification': 'The Candidate Final Answer correctly addresses the impact of angular dispersion and bias voltage on anisotropy, but lacks some specificity found in the Gold Answer. The graph captures most of the essential concepts and relationships but does not fully connect all elements as comprehensively as needed.'}
+2026-05-20 01:22:09,238 | [Reward] format=0.900 correctness=0.850 graph_utility=0.800 graph_schema=0.927 total=0.865
+2026-05-20 01:22:09,239 | [parallel_reward] completion=1 reward=0.8655 time=2.12s
+2026-05-20 01:28:46,195 | [parallel_reward] scoring 2 completions with max_workers=2, judge_model=gpt-4o-mini, weights={correctness:0.3, format:0.25, graph_utility:0.25, schema:0.2, networkx:0.0, diversity:0.0, structure:0.0}
+2026-05-20 01:28:48,811 | [Judge:judge_bundle] {'correctness_score': 0.9, 'graph_utility_score': 0.85, 'justification': 'The Candidate Final Answer is largely complete, covering key historical and geopolitical factors, though it could elaborate more on the dual narratives and settlement activities. The graph captures most key concepts and relationships, with minor gaps in granularity.'}
+2026-05-20 01:28:48,812 | [Reward] format=1.000 correctness=0.900 graph_utility=0.850 graph_schema=1.000 total=0.933
+2026-05-20 01:28:48,812 | [parallel_reward] completion=0 reward=0.9325 time=2.62s
+2026-05-20 01:28:49,055 | [Judge:judge_bundle] {'correctness_score': 0.92, 'graph_utility_score': 0.88, 'justification': 'The Candidate Final Answer closely aligns with the Gold Answer, covering key factors but lacking some specific details, while the graph effectively captures most key concepts and relationships but could benefit from slightly more nuance.'}
+2026-05-20 01:28:49,056 | [Reward] format=1.000 correctness=0.920 graph_utility=0.880 graph_schema=1.000 total=0.946
+2026-05-20 01:28:49,057 | [parallel_reward] completion=1 reward=0.9460 time=2.85s

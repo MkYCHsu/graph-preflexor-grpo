@@ -15,55 +15,35 @@
 
 #SBATCH --nodelist=node1229
 ###SBATCH --nodelist=node982
-
 module purge
 source ~/.bashrc
-~/clean_trash.sh
-#source ~/ml.sh
-#conda deactivate
+clean
 conda activate llm
 
-XDG_RUNTIME_DIR=""
-
-#jupyter nbconvert --to script graphRAG_preflexor_v3-training.ipynb
-#python graphRAG_preflexor_v3-training.py
+export XDG_RUNTIME_DIR=""
+export JUDGE_MAX_WORKERS=16
+export JUDGE_RETRIES=2
+export JUDGE_DEBUG_TIMING=1
+export WANDB_MODE=offline
 
 python src/run_grpo_graph_advanced.py \
-  --base_model_dir mkychsu/tsmc_graph_preflexor_grpo_2 \
-  --dataset mkychsu/tsmc_small_preflexor_grpo \
-  --output_dir ./grpo_graph_advanced \
+  --base_model_dir ./grpo_graph_advanced/semiconductor_graph_preflexor_grpo_merged \
+  --dataset mkychsu/semiconductcor_preflexor_grpo_2048 \
+  --output_dir ./grpo_graph_advanced_smoke \
   --judge_model gpt-4o-mini \
   --judge_api_key $OPENAI_API_KEY \
-  --weight_correctness 0.35 \
+  --weight_correctness 0.3 \
   --weight_format 0.25 \
   --weight_graph_utility 0.25 \
-  --weight_graph_schema 0.15 \
-  --per_device_train_batch_size 1 \
-  --gradient_accumulation_steps 4 \
-  --num_generations 4 \
+  --weight_graph_schema 0.2 \
+  --per_device_train_batch_size 2 \
+  --gradient_accumulation_steps 1 \
+  --num_generations 2 \
   --learning_rate 5e-6 \
   --epochs 1 \
-  --max_completion_length 4096 \
-  --save_steps 500 \
-  --push_to_hub \
-  --hub_model_id mkychsu/tsmc_graph_preflexor_grpo_2 \
+  --max_completion_length 4096\
+  --save_steps 1000 \
+  --no_save_merged_orpo \
+  --debug_rewards \
   --hf_token $HF_TOKEN
-
-#python src/run_orpo_graph.py \
-  #--base_model ~/pool/llm/Llama-3.1-8B-Instruct \
-  #--dataset mkychsu/tsmc_small_preflexor_grpo \
-  #--output_dir ./orpo_graph_model \
-  #--lora_r 16 \
-  #--lora_alpha 32 \
-  #--lr 5e-5 \
-  #--epochs 1 \
-  #--batch_size 1 \
-  #--grad_accum 4 \
-  #--max_length 6144 \
-  #--save_steps 500 \
-  #--eval_steps 500 \
-  #--push_to_hub \
-  #--hub_model_id mkychsu/tsmc_graph_preflexor_grpo \
-  #--hf_token $HF_TOKEN
-
 
