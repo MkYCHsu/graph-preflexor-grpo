@@ -15,35 +15,25 @@
 
 #SBATCH --nodelist=node1229
 ###SBATCH --nodelist=node982
+
 module purge
 source ~/.bashrc
-clean
+~/clean_trash.sh
+#source ~/ml.sh
+#conda deactivate
 conda activate llm
 
-export XDG_RUNTIME_DIR=""
-export JUDGE_MAX_WORKERS=16
-export JUDGE_RETRIES=2
-export JUDGE_DEBUG_TIMING=1
-export WANDB_MODE=offline
+XDG_RUNTIME_DIR=""
 
-python src/run_grpo_graph_advanced.py \
-  --base_model_dir ./grpo_graph_advanced/semiconductor_graph_preflexor_grpo_merged \
+python src/run_grpo_graph.py \
+  --base_model_dir mkychsu/semiconductor_graph_preflexor_grpo \
   --dataset mkychsu/semiconductcor_preflexor_grpo_2048 \
-  --output_dir ./grpo_graph_advanced_smoke \
-  --judge_model gpt-4o-mini \
+  --output_dir ./orpo-grpo-graph_v1 \
+  --judge_model gpt-5-mini \
   --judge_api_key $OPENAI_API_KEY \
-  --weight_correctness 0.3 \
-  --weight_format 0.25 \
-  --weight_graph_utility 0.25 \
-  --weight_graph_schema 0.2 \
-  --per_device_train_batch_size 2 \
-  --gradient_accumulation_steps 1 \
-  --num_generations 2 \
-  --learning_rate 5e-6 \
   --epochs 1 \
-  --max_completion_length 4096\
-  --save_steps 1000 \
-  --no_save_merged_orpo \
-  --debug_rewards \
+  --num_generations 2 \
+  --push_to_hub \
+  --hub_model_id mkychsu/semiconductor_graph_preflexor_grpo_2 \
   --hf_token $HF_TOKEN
 
